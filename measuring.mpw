@@ -1,0 +1,16 @@
+
+[WORKSPACE]
+  MPW_NAME="WorkSpace"
+  Project=".\transmit",A
+  Project=".\receive",A
+
+ PL70_APP0=0,0,""
+ PL70_APP1=0,0,""
+ PL70_APP2=0,0,""
+ PL70_APP3=0,0,""
+ PL70_APP4=0,0,""
+ PL70_APP5=0,0,""
+ PL70_EXEC=""
+ PL70_CFG=""
+ PL70_FLAGS=0x00000000
+ PL70_MISC=""

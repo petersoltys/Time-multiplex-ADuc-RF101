@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I.\src\SD_MMC -I..\..\Common -I..\..\DasLib -I$K\ARM\CMSIS\Include 
+-I C:\Keil_v5\ARM\RV31\INC 
+-I C:\Keil_v5\ARM\CMSIS\Include 
+-I C:\Keil_v5\ARM\Inc\ADI 
+-o ".\obj\mmc_rspi.o" --omf_browse ".\obj\mmc_rspi.crf" --depend ".\obj\mmc_rspi.d" "src\SD_MMC\mmc_rspi.c"

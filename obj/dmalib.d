@@ -1,0 +1,10 @@
+.\obj\dmalib.o: ..\..\DasLib\DmaLib.c
+.\obj\dmalib.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdio.h
+.\obj\dmalib.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\string.h
+.\obj\dmalib.o: ..\..\DasLib\DmaLib.h
+.\obj\dmalib.o: ..\..\Common\ADuCRF101.h
+.\obj\dmalib.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\obj\dmalib.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\obj\dmalib.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\obj\dmalib.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\obj\dmalib.o: ..\..\Common\system_ADUCRF101.h

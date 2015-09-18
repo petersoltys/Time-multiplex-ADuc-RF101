@@ -1,0 +1,49 @@
+program vytvárajúci èasový multiplex so 4xSlave zariadeniami a 1 Master 
+ktorý slúži ako centrálny zberný uzol pre dáta
+
+autor   Peter Šoltýs
+verzia  0.3
+hardvér ADucRF101MKxZ
+datum   16.9.2015
+projekt "for fun"
+
+
+
+kompatibilne s programom UWB - Coordinate Reader Deployment od Petra Mikulu
+
+namerané hodnoty
+priepustnos na 1 Slave zariadenie je stabilne približne 4500 Bajtov/sekundu
+(vrátane hlavièiek paketov a znovu-vyslaných paketov)
+v prevádzke s programom UWB - Coordinate Reader Deployment je znovu-vysielaný približne 1/20. paketov, kedže RF Interface zahadzuje pakety so zlým CRC
+ak aj napriek znovu-vyslaniu nieje paket prijatý je o tom vyslaná na UART správa
+(pri testovaní nenastal takýto prípad)
+
+vzh¾adom na malú RAM pamä nieje mo6n0 buffrova data v Master zariadení po dlhšiu dobu 
+(napr. uvažovanú 1s) preto sú data bufrované iba po re-tx slot
+
+>>>> Master vysiela synchronizacny paket pre každé slave zariadenie a
+>>>> 
+>>>> Master zistí ktoré pakety chýbajú a poèas opravného (re-tx) slotu sa opätovne
+>>>> vyslu chýbajúce pakety
+
+>>>> Schéma vysielania èasových slotov
+>>>>
+>>>> |_0_|_1_|_2_|_3_|_re-tx_|...
+>>>>
+>>>> Každý èasový slot aj opravný(re-tx) trvá približne 0,01 sekundy aj ak
+>>>> nestíhajú vysiela všetky pakety
+>>>>
+>>>> V opravnom slote sa vysiela výzva na znovu vyslanie chýbajúcich
+>>>> paketov
+>>>> iba z posledných èasových slotov (staršie pakety sa neopravuju)
+>>>> prípadne pakety ktoré nestihlo slave zariadenie vysla poèas svojho èasového slotu.
+>>>> 
+
+format hlavicky paketu
+S(cislo slave 0..3)P(cislo paketu 0..N)/(pocet paketov na odoslanie 0..N) (data)
+printf ukazka  "S%dP%d/%d"
+ukazka "S2P1/3 'data'" (Slave 2, paket 1, Pocet paketov na odoslanie 3)
+
+format re-tx paketu
+S(cislo slave 0..3) P(cislo paketu 0..N)(cislo paketu 0..N)(cislo paketu 0..N)...
+ukazka "S2 P24" (Slave 2, paket na znovuvylanie 2, paket na znovuvylanie 2)

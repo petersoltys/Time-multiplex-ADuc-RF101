@@ -1,0 +1,5 @@
+--cpu Cortex-M3 ".\obj\master.o" ".\obj\startup_aducrf101.o" ".\obj\retarget.o" ".\obj\radioeng.o" ".\obj\system_aducrf101.o" ".\obj\common.o" ".\obj\adclib.o" ".\obj\wutlib.o" ".\obj\clklib.o" ".\obj\diolib.o" ".\obj\gptlib.o" ".\obj\intlib.o" ".\obj\pwrlib.o" ".\obj\rstlib.o" ".\obj\spilib.o" ".\obj\urtlib.o" ".\obj\wdtlib.o" ".\obj\dmalib.o" ".\obj\diskio.o" ".\obj\ff.o" 
+--library_type=microlib --strict --scatter ".\obj\Radio.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Lst\Radio.map" -o .\obj\Radio.axf

@@ -1,0 +1,39 @@
+*** Creating Trace Output File '.\obj\Radio.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\obj\master.o"'
+### List of Objects: adding '".\obj\startup_aducrf101.o"'
+### List of Objects: adding '".\obj\retarget.o"'
+### List of Objects: adding '".\obj\radioeng.o"'
+### List of Objects: adding '".\obj\system_aducrf101.o"'
+### List of Objects: adding '".\obj\common.o"'
+### List of Objects: adding '".\obj\adclib.o"'
+### List of Objects: adding '".\obj\wutlib.o"'
+### List of Objects: adding '".\obj\clklib.o"'
+### List of Objects: adding '".\obj\diolib.o"'
+### List of Objects: adding '".\obj\gptlib.o"'
+### List of Objects: adding '".\obj\intlib.o"'
+### List of Objects: adding '".\obj\pwrlib.o"'
+### List of Objects: adding '".\obj\rstlib.o"'
+### List of Objects: adding '".\obj\spilib.o"'
+### List of Objects: adding '".\obj\urtlib.o"'
+### List of Objects: adding '".\obj\wdtlib.o"'
+### List of Objects: adding '".\obj\dmalib.o"'
+### List of Objects: adding '".\obj\diskio.o"'
+### List of Objects: adding '".\obj\ff.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 ".\obj\master.o" ".\obj\startup_aducrf101.o" ".\obj\retarget.o" ".\obj\radioeng.o" ".\obj\system_aducrf101.o" ".\obj\common.o" ".\obj\adclib.o" ".\obj\wutlib.o" ".\obj\clklib.o" ".\obj\diolib.o" ".\obj\gptlib.o" ".\obj\intlib.o" ".\obj\pwrlib.o" ".\obj\rstlib.o" ".\obj\spilib.o" ".\obj\urtlib.o" ".\obj\wdtlib.o" ".\obj\dmalib.o" ".\obj\diskio.o" ".\obj\ff.o" 
+--library_type=microlib --strict --scatter ".\obj\Radio.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\Lst\Radio.map" -o .\obj\Radio.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\obj\Radio.axf'
+### ADS-LD Command File: '.\obj\Radio.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\obj\Radio.lnp', Handle=0x000038F0
+### Writing '.lnp' file
+### ADS-LD Command file '.\obj\Radio.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

@@ -1,0 +1,5 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -I$K\ARM\CMSIS\Include 
+-I C:\Keil_v5\ARM\RV31\INC 
+-I C:\Keil_v5\ARM\CMSIS\Include 
+-I C:\Keil_v5\ARM\Inc\ADI 
+-o ".\obj\diskio.o" --omf_browse ".\obj\diskio.crf" --depend ".\obj\diskio.d" "src\SD_SPI\diskio.c"

@@ -1,0 +1,67 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.16a
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Peter Soltys, TUKE, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.16a
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 (build 20)
+Assembler:       Armasm.exe V5.06 (build 20)
+Linker/Locator:  ArmLink.exe V5.06 (build 20)
+Library Manager: ArmAr.exe V5.06 (build 20)
+Hex Converter:   FromElf.exe V5.06 (build 20)
+CPU DLL:         SARMCM3.DLL V5.16a
+Dialog DLL:      DCM.DLL V1.13.2.0
+Target DLL:      Segger\JL2CM3.dll V2.99.15.2
+Dialog DLL:      TCM.DLL V1.14.5.0
+ 
+<h2>Project:</h2>
+D:\Radio\Aduc_rf101_my_sw\Projects\time_multiplex\Radio.uvproj
+Project File Date:  09/27/2015
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 (build 20)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Master'
+compiling Master.c...
+src\settings.h(126): warning:  #1-D: last line of file ends without a newline
+                                
+src\Master.c(171): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+    dmaSend(buff,len);
+src\Master.c(189): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+      RIE_Response = RadioTxPacketVariableLen(len, buff); 
+src\Master.c(269): warning:  #167-D: argument of type "signed char *" is incompatible with parameter of type "char *restrict"
+        sprintf(str,"S%d P",S);
+src\Master.c(282): warning:  #167-D: argument of type "signed char *" is incompatible with parameter of type "char *restrict"
+            strcat(str,str2);//append number of missed packet
+src\Master.c(282): warning:  #167-D: argument of type "signed char *" is incompatible with parameter of type "const char *restrict"
+            strcat(str,str2);//append number of missed packet
+src\Master.c(288): warning:  #68-D: integer conversion resulted in a change of sign
+          return -1;
+src\Master.c(293): warning:  #167-D: argument of type "signed char *" is incompatible with parameter of type "const char *"
+          rf_printf(str);
+src\Master.c(294): warning:  #167-D: argument of type "signed char *" is incompatible with parameter of type "const char *"
+          dma_printf(str);
+src\Master.c(301): warning:  #68-D: integer conversion resulted in a change of sign
+            return -1;
+src\Master.c(311): warning:  #68-D: integer conversion resulted in a change of sign
+                return -1;                                                                                                  //
+src\Master.c(317): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *restrict"
+          strcpy(&pktMemory[(Buffer[1]-'0')][(Buffer[3]-'0')][0],Buffer) ;//copy packet to memory                                          //
+src\Master.c(441): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "const char *restrict"
+      strcpy(&pktMemory[slv][pkt][0],Buffer) ;//copy packet to memory
+src\Master.c(503): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+            dmaSend(dmaTxPtr,len);//send data with head
+src\Master.c: 14 warnings, 0 errors
+linking...
+Program Size: Code=9526 RO-data=466 RW-data=52 ZI-data=12236  
+FromELF: creating hex file...
+".\obj\Radio.axf" - 0 Error(s), 14 Warning(s).
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

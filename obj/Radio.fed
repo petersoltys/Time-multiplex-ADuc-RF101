@@ -1,0 +1,182 @@
+;#<FEEDBACK># ARM Linker, 5060020: Last Updated: Wed Sep 30 22:52:48 2015
+;VERSION 0.2
+;FILE adclib.o
+AdcCfg <= USED 0
+AdcCnv <= USED 0
+AdcInit <= USED 0
+AdcPd <= USED 0
+AdcRd <= USED 0
+AdcSta <= USED 0
+__asm___8_AdcLib_c_AdcPd____REV16 <= USED 0
+__asm___8_AdcLib_c_AdcPd____REVSH <= USED 0
+gain_correction <= USED 0
+offset_correction <= USED 0
+;FILE clklib.o
+ExtClkCfg <= USED 0
+PerClkAct <= USED 0
+PerClkIni <= USED 0
+PerClkPd <= USED 0
+SysClkCfg <= USED 0
+__asm___8_ClkLib_c_68cdb0df____REV16 <= USED 0
+__asm___8_ClkLib_c_68cdb0df____REVSH <= USED 0
+;FILE diolib.o
+DioCfgPin <= USED 0
+DioDrv <= USED 0
+DioOce <= USED 0
+DioOcePin <= USED 0
+DioOenPin <= USED 0
+DioPul <= USED 0
+DioPulPin <= USED 0
+DioRd <= USED 0
+DioTriState <= USED 0
+DioTriStatePin <= USED 0
+DioWr <= USED 0
+__asm___8_DioLib_c_DioCfg____REV16 <= USED 0
+__asm___8_DioLib_c_DioCfg____REVSH <= USED 0
+;FILE diskio.o
+SPI_init <= USED 0
+__asm___8_diskio_c_SPI_init____REV16 <= USED 0
+__asm___8_diskio_c_SPI_init____REVSH <= USED 0
+disk_initialize <= USED 0
+disk_ioctl <= USED 0
+disk_read <= USED 0
+disk_status <= USED 0
+disk_write <= USED 0
+;FILE dmalib.o
+__asm___8_DmaLib_c_DmaInit____REV16 <= USED 0
+__asm___8_DmaLib_c_DmaInit____REVSH <= USED 0
+;FILE ff.o
+clust2sect <= USED 0
+f_chmod <= USED 0
+f_close <= USED 0
+f_closedir <= USED 0
+f_findfirst <= USED 0
+f_findnext <= USED 0
+f_getfree <= USED 0
+f_gets <= USED 0
+f_lseek <= USED 0
+f_mkdir <= USED 0
+f_mount <= USED 0
+f_open <= USED 0
+f_opendir <= USED 0
+f_printf <= USED 0
+f_putc <= USED 0
+f_puts <= USED 0
+f_read <= USED 0
+f_readdir <= USED 0
+f_rename <= USED 0
+f_stat <= USED 0
+f_sync <= USED 0
+f_truncate <= USED 0
+f_unlink <= USED 0
+f_utime <= USED 0
+f_write <= USED 0
+get_fat <= USED 0
+put_fat <= USED 0
+;FILE gptlib.o
+GptBsy <= USED 0
+GptCapRd <= USED 0
+GptCapSrc <= USED 0
+GptVal <= USED 0
+__asm___8_GptLib_c_GptCfg____REV16 <= USED 0
+__asm___8_GptLib_c_GptCfg____REVSH <= USED 0
+;FILE intlib.o
+EiCfg <= USED 0
+EiClr <= USED 0
+NmiClr <= USED 0
+__asm___8_IntLib_c_EiClr____REV16 <= USED 0
+__asm___8_IntLib_c_EiClr____REVSH <= USED 0
+;FILE master.o
+__asm___8_Master_c_71c7d111____REV16 <= USED 0
+__asm___8_Master_c_71c7d111____REVSH <= USED 0
+blink <= USED 0
+blinkDisable <= USED 0
+;FILE pwrlib.o
+PsmCfg <= USED 0
+PwrCfg <= USED 0
+PwrSta <= USED 0
+SramCfg <= USED 0
+__asm___8_PwrLib_c_SramCfg____REV16 <= USED 0
+__asm___8_PwrLib_c_SramCfg____REVSH <= USED 0
+;FILE radioeng.o
+RadioDeInit <= USED 0
+RadioGetAPIVersion <= USED 0
+RadioPayldManchesterEncode <= USED 0
+RadioRadioGetRSSI <= USED 0
+RadioRxBERTestMode <= USED 0
+RadioRxPacketFixedLen <= USED 0
+RadioSetModulationType <= USED 0
+RadioSwitchConfig <= USED 0
+RadioTxCarrier <= USED 0
+RadioTxPacketFixedLen <= USED 0
+RadioTxPreamble <= USED 0
+RadioTxSetPower <= USED 0
+__asm___10_radioeng_c_bbee047f____REV16 <= USED 0
+__asm___10_radioeng_c_bbee047f____REVSH <= USED 0
+;FILE retarget.o
+__asm___10_Retarget_c_fputc____REV16 <= USED 0
+__asm___10_Retarget_c_fputc____REVSH <= USED 0
+__backspace <= USED 0
+_sys_exit <= USED 0
+_ttywrch <= USED 0
+ferror <= USED 0
+fgetc <= USED 0
+fputc <= USED 0
+;FILE rstlib.o
+RstClr <= USED 0
+RstSta <= USED 0
+ShutSta <= USED 0
+__asm___8_RstLib_c_RstClr____REV16 <= USED 0
+__asm___8_RstLib_c_RstClr____REVSH <= USED 0
+;FILE spilib.o
+SpiBaud <= USED 0
+SpiCfg <= USED 0
+SpiCountRd <= USED 0
+SpiDma <= USED 0
+SpiFifoFlush <= USED 0
+SpiRx <= USED 0
+SpiRxFifoFlush <= USED 0
+SpiSta <= USED 0
+SpiTx <= USED 0
+SpiTxFifoFlush <= USED 0
+__asm___8_SpiLib_c_SpiCfg____REV16 <= USED 0
+__asm___8_SpiLib_c_SpiCfg____REVSH <= USED 0
+;FILE startup_aducrf101.o
+;FILE system_aducrf101.o
+GetSystemExtClkFreq <= USED 0
+SetSystemExtClkFreq <= USED 0
+SystemGetClockFrequency <= USED 0
+SystemSetClockDivider <= USED 0
+__asm___18_system_ADuCRF101_c_89dabdf7____REV16 <= USED 0
+__asm___18_system_ADuCRF101_c_89dabdf7____REVSH <= USED 0
+;FILE urtlib.o
+UrtBrk <= USED 0
+UrtIntCfg <= USED 0
+UrtIntSta <= USED 0
+UrtLinSta <= USED 0
+UrtModCfg <= USED 0
+UrtModSta <= USED 0
+UrtRx <= USED 0
+UrtTx <= USED 0
+__asm___8_UrtLib_c_8d72261a____REV16 <= USED 0
+__asm___8_UrtLib_c_8d72261a____REVSH <= USED 0
+;FILE wdtlib.o
+WdtCfg <= USED 0
+WdtClrInt <= USED 0
+WdtLd <= USED 0
+WdtSta <= USED 0
+WdtVal <= USED 0
+__asm___8_WdtLib_c_WdtCfg____REV16 <= USED 0
+__asm___8_WdtLib_c_WdtCfg____REVSH <= USED 0
+;FILE wutlib.o
+WutCfg <= USED 0
+WutCfgInt <= USED 0
+WutClrInt <= USED 0
+WutGo <= USED 0
+WutInc <= USED 0
+WutLdRd <= USED 0
+WutLdWr <= USED 0
+WutSta <= USED 0
+WutVal <= USED 0
+__asm___8_WutLib_c_WutCfg____REV16 <= USED 0
+__asm___8_WutLib_c_WutCfg____REVSH <= USED 0

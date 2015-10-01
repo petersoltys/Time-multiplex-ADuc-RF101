@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include
+-I C:\Keil_v5\ARM\RV31\INC
+-I C:\Keil_v5\ARM\CMSIS\Include
+-I C:\Keil_v5\ARM\Inc\ADI
+-D__UVISION_VERSION="516"
+-o .\obj\system_aducrf101.o --omf_browse .\obj\system_aducrf101.crf --depend .\obj\system_aducrf101.d --feedback ".\obj\Radio.fed" "..\..\Common\system_ADuCRF101.c"

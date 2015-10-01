@@ -502,11 +502,12 @@ ARM Macro Assembler    Page 8
   293 0000001C                 END
               00000000 
               00000000 
-Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\obj\st
-artup_ADuCRF101.d -o.\obj\startup_ADuCRF101.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Ke
-il_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\Inc\ADI --predefine="__EVAL SETA 1" --
-predefine="__MICROLIB SETA 1" --list=.\Lst\startup_ADuCRF101.lst ..\..\Common\R
-ealView\startup_ADuCRF101.s
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\obj\startup_aducrf101.d -o.\obj\startup_aducrf101.o -IC:\Keil_v5
+\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\Inc\ADI --predefi
+ne="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSI
+ON SETA 516" --list=.\lst\startup_aducrf101.lst ..\..\Common\RealView\startup_A
+DuCRF101.s
 
 
 
@@ -1176,4 +1177,4 @@ Symbol: __use_no_semihosting_swi
       None
 Comment: __use_no_semihosting_swi unused
 3 symbols
-400 symbols in table
+401 symbols in table

@@ -1,0 +1,6 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include
+-I C:\Keil_v5\ARM\RV31\INC
+-I C:\Keil_v5\ARM\CMSIS\Include
+-I C:\Keil_v5\ARM\Inc\ADI
+-D__UVISION_VERSION="516"
+-o .\obj\spilib.o --omf_browse .\obj\spilib.crf --depend .\obj\spilib.d --feedback ".\obj\Radio.fed" "..\..\DasLib\SpiLib.c"

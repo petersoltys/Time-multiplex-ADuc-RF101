@@ -30,7 +30,7 @@
 ### ADS-LD Output File: '.\obj\Radio.axf'
 ### ADS-LD Command File: '.\obj\Radio.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '.\obj\Radio.lnp', Handle=0x000038F0
+### Creating CmdFile '.\obj\Radio.lnp', Handle=0x0000030C
 ### Writing '.lnp' file
 ### ADS-LD Command file '.\obj\Radio.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.

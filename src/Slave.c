@@ -31,25 +31,10 @@ to
 **/
 #include "include.h"
 #include "SD_SPI/ff.h"
+#include "settings.h"
 
 #define LED_OFF DioSet(pADI_GP4,BIT2)//led off
 #define LED_ON  DioClr(pADI_GP4,BIT2)//led on
-
-#define TIME_SLOT_ID "Slave 2 Time Slot"//number in string is Slave == 0..3 number
-#define RETRANSMITION_ID "S2 P"//number in string is Slave == 0..3 number
-#define SLAVE_ID 2 //Slave == 0..3 number
-#define UART_BAUD_RATE 9600//128000
-#define LEN_OF_RX_PKT 0 //lenght of received packets from UART (if==0 variable lenght)
-
-#define RX_STREAM 0 //stream of redeived data to UART
-#define TX_STREAM 0 //stream of transmited data to UART
-#define THROUGHPUT_MEASURE 0  //if ==0 no measuring
-                              //if ==1 measure throughput of received data from UART
-                              //if ==2 measure maximum throughput with shyntetic data
-                              //measured are all data included packet heads (aproximetlz 5000 Bytes/s by slave)
-
-#define HEAD_LENGHT 6
-#define HEAD_FORMAT "S%dP%d/%d",SLAVE_ID,txPkt,numOfPackets[actualTxBuffer]-1 //format inside of sprintf
 
 
 RIE_Responses RIE_Response = RIE_Success;
@@ -87,20 +72,20 @@ int rxThroughput;
 #endif
 
 /*
-*inicializovanie uart portu
-* rychlost 19200 baud
-* 8 bitov
-* jeden stop bit
-* vystup port P1.0\P1.1
+* initializing uart port
+* speed UART_BAUD_RATE_SLAVE baud
+* 8 bits
+* one stop bit
+* output port P1.0\P1.1
 */
 void uart_init(void){
   rxPktPtr =&pktMemory[actualRxBuffer][numOfPackets[actualRxBuffer]][HEAD_LENGHT+1];//pinting beyound packet head
   
-	UrtLinCfg(0,UART_BAUD_RATE,COMLCR_WLS_8BITS,COMLCR_STOP_DIS);//configure uart
+	UrtLinCfg(0,UART_BAUD_RATE_SLAVE,COMLCR_WLS_8BITS,COMLCR_STOP_DIS);//configure uart
   DioCfg(pADI_GP1,0x9); // UART functionality on P1.0\P1.1
   
 #if LEN_OF_RX_PKT == 0
-  UrtIntCfg(0,COMIEN_ERBFI); // enable Rx interrupts
+  UrtIntCfg(0,COMIEN_ERBFI);// enable Rx interrupts
   NVIC_EnableIRQ(UART_IRQn);// setup to receive data using interrupts
 #endif
   
@@ -129,20 +114,30 @@ void led_init(void){
   DioCfg(pADI_GP4,0x10);
   DioOen(pADI_GP4, BIT2); 
 }
+
 /*
-* function for initialising the Radio interface
+* function for initialise the Radio
+* funkcia na inicialiyovanie radioveho prenosu
 */
-void Radio_init(void){
-	  // Initialise the Radio
+void radioInit(void){
+  // Initialise the Radio
   if (RIE_Response == RIE_Success)
-     //RIE_Response = RadioInit(DR_38_4kbps_Dev20kHz);  
-     RIE_Response = RadioInit(DR_300_0kbps_Dev75_0kHz);       
-  // Set the Frequency to operate at 915 MHz
+     RIE_Response = RadioInit(RADIO_CFG);  
+  // Set the Frequency to operate at 433 MHz
   if (RIE_Response == RIE_Success)
-     RIE_Response = RadioSetFrequency(433920000);//433.92 Mhz (Bakalarka Oto Petura)
-  //set data whitening
+     RIE_Response = RadioSetFrequency(RADIO_FREQENCY);
+  // Set modulation type
   if (RIE_Response == RIE_Success)
-     RIE_Response = RadioPayldDataWhitening(RIE_TRUE);
+     RadioSetModulationType(RADIO_MODULATION);
+  // Set the PA and Power Level
+  if (RIE_Response == RIE_Success)
+     RIE_Response = RadioTxSetPA(PA_TYPE,RADIO_POWER);
+  // Set data whitening
+  if (RIE_Response == RIE_Success)
+     RIE_Response = RadioPayldDataWhitening(DATA_WHITENING);
+  // Set data Manchaster encoding
+  if (RIE_Response == RIE_Success)
+    RadioPayldManchesterEncode(RADIO_MANCHASTER);
 }
 
 #include <stdarg.h>
@@ -156,6 +151,7 @@ void  dmaSend(unsigned char* buff, int len){
     DmaTransferSetup(UARTTX_C,len,buff);
     UrtDma(0,COMIEN_EDMAT);
 }
+
 /*
 * this function is equivalent to function printf from library stdio.h
 * output stream is managed with DMA controller 
@@ -223,9 +219,6 @@ unsigned char rf_printf(const char * format /*format*/, ...){
   return len;
 }
 
-/***************************************************************************************************
-****************************************************************************************************
-***************************************************************************************************/
 /*
 * function receive one packet from radio
 */
@@ -262,6 +255,7 @@ void Radio_recieve(void){//pocka na prijatie jedneho paketu
   UrtDma(0,COMIEN_EDMAT);
 #endif
 }
+
 /*
 * function set timer for interval 10ms aproximetly 
 * less than time of master, remaining time is used to transmit last packet
@@ -276,6 +270,7 @@ void setTimeToTx(void){
   while (GptSta(pADI_TM0)& TSTA_CLRI); // wait for sync of TCLRI write. required because of use of asynchronous clock
   NVIC_EnableIRQ(TIMER0_IRQn);
 }
+
 /*
 * function waiting for restart of master
 */
@@ -284,7 +279,6 @@ void conectionEstablish(void){
     Radio_recieve();
   while (strcmp(Buffer,"##start##"));//wait for start packet
 }
-
 
 #if THROUGHPUT_MEASURE == 2
 /*
@@ -298,6 +292,7 @@ transmitShynteticData(){
     rf_printf("S%dP0/2 my shyntetic data ... number of tx data %d Bytes",SLAVE_ID,txThroughput);
 }
 #else
+
 /*
 * function is transmiting all prepared packets throught radio link
 * all data packets are received via UART
@@ -308,7 +303,7 @@ char transmit(void){
   setTimeToTx();
   my_time_slot=1;
 
-    //change buffer pointers
+  //change buffer pointers
   actualRxBuffer++;
   actualTxBuffer++;
   actualReTxBuffer++;
@@ -324,13 +319,10 @@ char transmit(void){
   while (my_time_slot == 1 && (txPkt < numOfPackets[actualTxBuffer]) ){     //while interupt ocurs send avaliable packets
     pktMemoryPtr = &pktMemory[actualTxBuffer][txPkt][0];
 
-    //sprintf(pktPtr,"S%dP%d/%d is number of data packet    /*********/*********/\n",SLAVE_ID,txPkt,numOfPackets[]);//syntetic data
     sprintf(pktMemoryPtr,HEAD_FORMAT);//build head of packet
     pktMemoryPtr[HEAD_LENGHT]=' ';//replace '\0' with ' ' spacebar because '\0' is also end of packet indicator
     
-//////////////////////////////////////////////////////////////
-/************************************************************/
-    //if(txPkt!=1)//////////////////////////////////////////////
+
     if (terminate_flag != 1){
       rf_printf(pktMemoryPtr);//send packet
     }
@@ -376,17 +368,7 @@ void troughputMeasureInit(void){
   NVIC_EnableIRQ(TIMER1_IRQn);
 }
 #endif
-//////////////////////////////////////////////////////////////
-/************************************************************/
-generateFalseData(){
-  char n;
-  
-  for(n=0;n<5;n++){
-    rxPktPtr = &pktMemory[actualRxBuffer][numOfPackets[actualRxBuffer]][HEAD_LENGHT+1];//pinting beyound packet head
-    sprintf(rxPktPtr,"my shyntetic data ... .........................");
-    numOfPackets[actualRxBuffer]++;
-  }
-}
+
 /*
 *
 */
@@ -422,7 +404,7 @@ int main(void)
         LED_OFF;
       }
     }
-    while ( 0 != strcmp(Buffer,TIME_SLOT_ID));
+    while ( 0 != strcmp(Buffer,TIME_SLOT_ID_SLAVE));
     
 #if THROUGHPUT_MEASURE == 2
       LED_ON;
@@ -431,9 +413,7 @@ int main(void)
       TX_flag=0;
       LED_OFF;
 #else
-    //////////////////////////////////////////////////////////////
-/************************************************************/
-    //generateFalseData();
+
     if(numOfPackets[actualRxBuffer])//if is something to send
       {
       LED_ON;
@@ -482,14 +462,6 @@ void DMA_UART_TX_Int_Handler ()
   UrtDma(0,COMIEN_EDMAR);  // prevents further UART DMA requests
 // Disable DMA channel
   DmaChanSetup ( UARTTX_C , DISABLE , DISABLE );
-//NVIC_ClearPendingIRQ(DMA_UART_TX_IRQn);//clear interupt flag
-  
-  
-//     //enable RX DMA chanel for receiving next packets forom UART
-//   DmaChanSetup(UARTRX_C,ENABLE,ENABLE);// Enable DMA channel  
-//   DmaTransferSetup(UARTRX_C,LEN_OF_RX_PKT,&pktMemory[][][]);
-//   UrtDma(0,COMIEN_EDMAR);
-
 }
 ///////////////////////////////////////////////////////////////////////////
 // DMA UART Interrupt handler 
@@ -534,14 +506,6 @@ void UART_Int_Handler ()
  
   ucCOMIID0 = UrtIntSta(0);		// Read UART Interrupt ID register
 
-//   if ((ucCOMIID0 & COMIIR_STA_MODEMSTATUS) == COMIIR_STA_MODEMSTATUS)	  // Modem status interrupt
-//   {
-//       //Read COMMSR register to clear 
-//   }
-//   if ((ucCOMIID0 & COMIIR_STA_TXBUFEMPTY) == COMIIR_STA_TXBUFEMPTY)	  // Transmit buffer empty interrupt
-//   {
-//       //COMIIR_STA_TXBUFEMPTY is cleared by calling UrtIntSta() or UrtWr() 
-//   }
   if ((ucCOMIID0 & COMIIR_STA_RXBUFFULL) == COMIIR_STA_RXBUFFULL)	  // Receive buffer full interrupt
   {
     ch	= UrtRx(0);   //call UrtRd() clears COMIIR_STA_RXBUFFULL
@@ -561,16 +525,5 @@ void UART_Int_Handler ()
       dma_printf("buffer full ");
     }
   }
-//   if ((ucCOMIID0 & COMIIR_STA_RXBUFFULL) == COMIIR_STA_RXBUFFULL)	  // Receive line status interrupt
-//   {
-//     ucLineSta = UrtLinSta(0);     //Read COMLSR register to clear 
-//     if ((ucLineSta & COMLSR_DR) == COMLSR_DR){} // Data Ready
-//     if ((ucLineSta & COMLSR_OE) == COMLSR_OE){} // Overrun Error
-//     if ((ucLineSta & COMLSR_PE) == COMLSR_PE){} // Parity Error
-//     if ((ucLineSta & COMLSR_FE) == COMLSR_FE){} // Framing Error
-//     if ((ucLineSta & COMLSR_BI) == COMLSR_BI){} // Break Indicator
-//     if ((ucLineSta & COMLSR_THRE) == COMLSR_THRE){} // COMTX Empty
-//     if ((ucLineSta & COMLSR_TEMT) == COMLSR_TEMT){} // COMTX and Shift Register Empty
-//   }
 #endif
 } 

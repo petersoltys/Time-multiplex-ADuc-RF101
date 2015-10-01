@@ -1,0 +1,246 @@
+Dependencies for Project 'Radio', Target 'Master': (DO NOT MODIFY !)
+F (.\src\Slave.c)(0x560C5F50)()
+F (.\src\Master.c)(0x560C5F50)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\master.o --omf_browse .\obj\master.crf --depend .\obj\master.d)
+I (..\..\Common\include.h)(0x55F208CB)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x55AF4A52)
+I (..\..\Common\defs.h)(0x5513E3F9)
+I (..\..\Common\ADUCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+I (..\..\Common\radioeng.h)(0x5513E3F7)
+I (..\..\DasLib\AdcLib.h)(0x5513E40E)
+I (..\..\DasLib\ClkLib.h)(0x5513E40D)
+I (..\..\DasLib\DioLib.h)(0x5513E40D)
+I (..\..\DasLib\DmaLib.h)(0x5513E40C)
+I (..\..\DasLib\FeeLib.h)(0x5513E40C)
+I (..\..\DasLib\GptLib.h)(0x5513E40B)
+I (..\..\DasLib\I2cLib.h)(0x5513E40A)
+I (..\..\DasLib\IntLib.h)(0x5513E40C)
+I (..\..\DasLib\PwmLib.h)(0x5513E408)
+I (..\..\DasLib\PwrLib.h)(0x5513E408)
+I (..\..\DasLib\RstLib.h)(0x5513E407)
+I (..\..\DasLib\SpiLib.h)(0x5513E407)
+I (..\..\DasLib\UrtLib.h)(0x5513E407)
+I (..\..\DasLib\WdtLib.h)(0x5513E406)
+I (..\..\DasLib\WutLib.h)(0x5513E406)
+I (src\settings.h)(0x560C5FCE)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x55AF4A52)
+F (..\..\Common\RealView\startup_ADuCRF101.s)(0x55EF0CC4)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI--pd "__UVISION_VERSION SETA 516"--list .\lst\startup_aducrf101.lst --xref -o .\obj\startup_aducrf101.o --depend .\obj\startup_aducrf101.d)
+F (..\..\Common\RealView\Retarget.c)(0x5513E405)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\retarget.o --omf_browse .\obj\retarget.crf --depend .\obj\retarget.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (..\..\Common\include.h)(0x55F208CB)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x55AF4A52)
+I (..\..\Common\defs.h)(0x5513E3F9)
+I (..\..\Common\ADUCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+I (..\..\Common\radioeng.h)(0x5513E3F7)
+I (..\..\DasLib\AdcLib.h)(0x5513E40E)
+I (..\..\DasLib\ClkLib.h)(0x5513E40D)
+I (..\..\DasLib\DioLib.h)(0x5513E40D)
+I (..\..\DasLib\DmaLib.h)(0x5513E40C)
+I (..\..\DasLib\FeeLib.h)(0x5513E40C)
+I (..\..\DasLib\GptLib.h)(0x5513E40B)
+I (..\..\DasLib\I2cLib.h)(0x5513E40A)
+I (..\..\DasLib\IntLib.h)(0x5513E40C)
+I (..\..\DasLib\PwmLib.h)(0x5513E408)
+I (..\..\DasLib\PwrLib.h)(0x5513E408)
+I (..\..\DasLib\RstLib.h)(0x5513E407)
+I (..\..\DasLib\SpiLib.h)(0x5513E407)
+I (..\..\DasLib\UrtLib.h)(0x5513E407)
+I (..\..\DasLib\WdtLib.h)(0x5513E406)
+I (..\..\DasLib\WutLib.h)(0x5513E406)
+F (..\..\Common\radioeng.c)(0x55F8675A)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\radioeng.o --omf_browse .\obj\radioeng.crf --depend .\obj\radioeng.d)
+I (..\..\Common\include.h)(0x55F208CB)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x55AF4A52)
+I (..\..\Common\defs.h)(0x5513E3F9)
+I (..\..\Common\ADUCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+I (..\..\Common\radioeng.h)(0x5513E3F7)
+I (..\..\DasLib\AdcLib.h)(0x5513E40E)
+I (..\..\DasLib\ClkLib.h)(0x5513E40D)
+I (..\..\DasLib\DioLib.h)(0x5513E40D)
+I (..\..\DasLib\DmaLib.h)(0x5513E40C)
+I (..\..\DasLib\FeeLib.h)(0x5513E40C)
+I (..\..\DasLib\GptLib.h)(0x5513E40B)
+I (..\..\DasLib\I2cLib.h)(0x5513E40A)
+I (..\..\DasLib\IntLib.h)(0x5513E40C)
+I (..\..\DasLib\PwmLib.h)(0x5513E408)
+I (..\..\DasLib\PwrLib.h)(0x5513E408)
+I (..\..\DasLib\RstLib.h)(0x5513E407)
+I (..\..\DasLib\SpiLib.h)(0x5513E407)
+I (..\..\DasLib\UrtLib.h)(0x5513E407)
+I (..\..\DasLib\WdtLib.h)(0x5513E406)
+I (..\..\DasLib\WutLib.h)(0x5513E406)
+F (..\..\Common\system_ADuCRF101.c)(0x5513E3F7)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\system_aducrf101.o --omf_browse .\obj\system_aducrf101.crf --depend .\obj\system_aducrf101.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (..\..\Common\ADUCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (.\src\common.c)(0x55F5442A)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\common.o --omf_browse .\obj\common.crf --depend .\obj\common.d)
+F (.\src\settings.h)(0x560C5FCE)()
+F (..\..\DasLib\AdcLib.c)(0x5513E40E)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\adclib.o --omf_browse .\obj\adclib.crf --depend .\obj\adclib.d)
+I (..\..\DasLib\AdcLib.h)(0x5513E40E)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\WutLib.c)(0x5513E406)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\wutlib.o --omf_browse .\obj\wutlib.crf --depend .\obj\wutlib.d)
+I (..\..\DasLib\WutLib.h)(0x5513E406)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\ClkLib.c)(0x5513E40E)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\clklib.o --omf_browse .\obj\clklib.crf --depend .\obj\clklib.d)
+I (..\..\DasLib\ClkLib.h)(0x5513E40D)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\DioLib.c)(0x5513E40D)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\diolib.o --omf_browse .\obj\diolib.crf --depend .\obj\diolib.d)
+I (..\..\DasLib\DioLib.h)(0x5513E40D)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\GptLib.c)(0x5513E40C)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\gptlib.o --omf_browse .\obj\gptlib.crf --depend .\obj\gptlib.d)
+I (..\..\DasLib\GptLib.h)(0x5513E40B)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\IntLib.c)(0x5513E409)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\intlib.o --omf_browse .\obj\intlib.crf --depend .\obj\intlib.d)
+I (..\..\DasLib\IntLib.h)(0x5513E40C)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\PwrLib.c)(0x5513E409)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\pwrlib.o --omf_browse .\obj\pwrlib.crf --depend .\obj\pwrlib.d)
+I (..\..\DasLib\PwrLib.h)(0x5513E408)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\RstLib.c)(0x5513E408)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\rstlib.o --omf_browse .\obj\rstlib.crf --depend .\obj\rstlib.d)
+I (..\..\DasLib\RstLib.h)(0x5513E407)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\SpiLib.c)(0x5513E407)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\spilib.o --omf_browse .\obj\spilib.crf --depend .\obj\spilib.d)
+I (..\..\DasLib\SpiLib.h)(0x5513E407)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\UrtLib.c)(0x5513E407)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\urtlib.o --omf_browse .\obj\urtlib.crf --depend .\obj\urtlib.d)
+I (..\..\DasLib\UrtLib.h)(0x5513E407)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\WdtLib.c)(0x5513E406)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\wdtlib.o --omf_browse .\obj\wdtlib.crf --depend .\obj\wdtlib.d)
+I (..\..\DasLib\WdtLib.h)(0x5513E406)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (..\..\DasLib\DmaLib.c)(0x5513E40D)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\dmalib.o --omf_browse .\obj\dmalib.crf --depend .\obj\dmalib.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55AF4A52)
+I (..\..\DasLib\DmaLib.h)(0x5513E40C)
+I (..\..\Common\ADuCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+F (.\src\SD_SPI\diskio.c)(0x55A032EA)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\diskio.o --omf_browse .\obj\diskio.crf --depend .\obj\diskio.d)
+I (src\SD_SPI\diskio.h)(0x551A79F2)
+I (src\SD_SPI\integer.h)(0x54E73E6C)
+I (..\..\Common\include.h)(0x55F208CB)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x55AF4A52)
+I (..\..\Common\defs.h)(0x5513E3F9)
+I (..\..\Common\ADUCRF101.h)(0x5513E403)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AF4A52)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h)(0x559D3FF8)
+I (C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h)(0x559D3FF8)
+I (..\..\Common\system_ADUCRF101.h)(0x5513E3F6)
+I (..\..\Common\radioeng.h)(0x5513E3F7)
+I (..\..\DasLib\AdcLib.h)(0x5513E40E)
+I (..\..\DasLib\ClkLib.h)(0x5513E40D)
+I (..\..\DasLib\DioLib.h)(0x5513E40D)
+I (..\..\DasLib\DmaLib.h)(0x5513E40C)
+I (..\..\DasLib\FeeLib.h)(0x5513E40C)
+I (..\..\DasLib\GptLib.h)(0x5513E40B)
+I (..\..\DasLib\I2cLib.h)(0x5513E40A)
+I (..\..\DasLib\IntLib.h)(0x5513E40C)
+I (..\..\DasLib\PwmLib.h)(0x5513E408)
+I (..\..\DasLib\PwrLib.h)(0x5513E408)
+I (..\..\DasLib\RstLib.h)(0x5513E407)
+I (..\..\DasLib\SpiLib.h)(0x5513E407)
+I (..\..\DasLib\UrtLib.h)(0x5513E407)
+I (..\..\DasLib\WdtLib.h)(0x5513E406)
+I (..\..\DasLib\WutLib.h)(0x5513E406)
+F (.\src\SD_SPI\diskio.h)(0x551A79F2)()
+F (.\src\SD_SPI\ff.c)(0x55845E17)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -IC:\Keil_v5\\ARM\CMSIS\Include-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\ADI-D__UVISION_VERSION="516"-o .\obj\ff.o --omf_browse .\obj\ff.crf --depend .\obj\ff.d)
+I (src\SD_SPI\ff.h)(0x551EB69B)
+I (src\SD_SPI\integer.h)(0x54E73E6C)
+I (src\SD_SPI\ffconf.h)(0x55184663)
+I (src\SD_SPI\diskio.h)(0x551A79F2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x55AF4A52)
+F (.\src\SD_SPI\ff.h)(0x551EB69B)()
+F (.\src\SD_SPI\ffconf.h)(0x55184663)()
+F (.\src\SD_SPI\00readme.txt)(0x54F8AE86)()
+F (.\src\SD_SPI\history.txt)(0x55A18A08)()

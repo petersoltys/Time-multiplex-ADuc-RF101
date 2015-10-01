@@ -13,9 +13,9 @@
    @date     august 2015  
 
    @par Revision History:
-   - V0.1, July 2015  : initial version. 
-   - V0.2, august 2015  : fully  functional.    
-   - V0.3, september 2015  : faster version with higher throughput
+   - V1.1, July 2015  : initial version. 
+   - V1.2, august 2015  : fully  functional.    
+   - V1.3, september 2015  : faster version with higher throughput
 
 
 note : in radioeng.c was changed intial value from
@@ -27,24 +27,14 @@ to
 
 **/
 #include "include.h"
-
+#include "settings.h"
 
 #define LED_OFF DioSet(pADI_GP4,BIT2)//led off
 #define LED_ON  DioClr(pADI_GP4,BIT2)//led on
 
-#define NUM_OF_SLAVE 4 //number of slave devices
-#define UART_BAUD_RATE 128000
 
-#define TIME_SLOT_ID "Slave %d Time Slot",SID
 
-//debug macros
-#define RX_STREAM 0 //stream of redeived data to UART
-#define TX_STREAM 0 //stream of transmited data to UART
-#define SEND_HEAD 1 //send also heads of ackets
-
-#define THROUGHPUT_MEASURE 0 //measure and print message about troughput on uart
-
-RIE_Responses RIE_Response = RIE_Success;
+RIE_Responses  RIE_Response = RIE_Success;
 unsigned char  Buffer[255];
 RIE_U8         PktLen;
 RIE_S8         RSSI;
@@ -71,7 +61,7 @@ unsigned char SID;//Slave ID
 signed char send=0;
 signed char nextRxPkt=0;
 
-signed char TX_flag=0,RX_flag=0,terminate_flag=0,empty_flag=0;
+signed char TX_flag=0,RX_flag=0,terminate_flag=0,flush_flag=0;
 signed char firstRxPkt = 0;
 
 signed char dmaTxSlv=0,dmaTxPkt=0,dmaTx_flag=0;//variables for DMA_UART_TX_Int_Handler
@@ -86,25 +76,26 @@ void DMA_UART_TX_Int_Handler (void);
 
 
 /*
-*inicializovanie uart portu
-* rychlost 19200 baud
-* 8 bitov
-* jeden stop bit
-* vystup port P1.0\P1.1
+* initializing uart port
+* speed UART_BAUD_RATE_MASTER baud
+* 8 bits
+* one stop bit
+* output port P1.0\P1.1
 */
 void uartInit(void){
-	UrtLinCfg(0,UART_BAUD_RATE,COMLCR_WLS_8BITS,COMLCR_STOP_DIS);
+  UrtLinCfg(0,UART_BAUD_RATE_MASTER,COMLCR_WLS_8BITS,COMLCR_STOP_DIS);
   DioCfg(pADI_GP1,0x9); // UART functionality on P1.0\P1.1
   
   DmaInit();// Create DMA descriptor
   DmaTransferSetup(UARTTX_C,  20,   Buffer);
   NVIC_EnableIRQ ( DMA_UART_TX_IRQn );// Enable DMA UART TX interrupt
 }
+
 /*
 * inicializovanie portu na ktorom je pripojena user specified led
 */
 void ledInit(void){
-	  // P4.2  as output
+    // P4.2  as output
   DioCfg(pADI_GP4,0x10);
   DioOen(pADI_GP4, BIT2); 
 }
@@ -122,8 +113,8 @@ void blink(unsigned int time){
   NVIC_EnableIRQ(TIMER1_IRQn);
 }
 void blinkDisable(){
-	NVIC_DisableIRQ(TIMER1_IRQn);
-	pADI_GP4->GPSET |= 0x04;
+  NVIC_DisableIRQ(TIMER1_IRQn);
+  pADI_GP4->GPSET |= 0x04;
 }
 
 /*
@@ -133,17 +124,22 @@ void blinkDisable(){
 void radioInit(void){
   // Initialise the Radio
   if (RIE_Response == RIE_Success)
-     //RIE_Response = RadioInit(DR_38_4kbps_Dev20kHz);  
-     RIE_Response = RadioInit(DR_300_0kbps_Dev75_0kHz);  
-  // Set the Frequency to operate at 915 MHz
+     RIE_Response = RadioInit(RADIO_CFG);  
+  // Set the Frequency to operate at 433 MHz
   if (RIE_Response == RIE_Success)
-     RIE_Response = RadioSetFrequency(433920000);//433.92 Mhz (Bakalarka Oto Petura)
+     RIE_Response = RadioSetFrequency(RADIO_FREQENCY);
+  // Set modulation type
+  if (RIE_Response == RIE_Success)
+     RadioSetModulationType(RADIO_MODULATION);
   // Set the PA and Power Level
   if (RIE_Response == RIE_Success)
-     RIE_Response = RadioTxSetPA(DifferentialPA,PowerLevel15);
-  //set data whitening
+     RIE_Response = RadioTxSetPA(PA_TYPE,RADIO_POWER);
+  // Set data whitening
   if (RIE_Response == RIE_Success)
-     RIE_Response = RadioPayldDataWhitening(RIE_TRUE);
+     RIE_Response = RadioPayldDataWhitening(DATA_WHITENING);
+  // Set data Manchaster encoding
+  if (RIE_Response == RIE_Success)
+    RadioPayldManchesterEncode(RADIO_MANCHASTER);
 }
 
 #include <stdarg.h>
@@ -157,6 +153,7 @@ void  dmaSend(unsigned char* buff, int len){
   DmaTransferSetup(UARTTX_C,len,buff);
   UrtDma(0,COMIEN_EDMAT);
 }
+
 /*
 * this function is equivalent to function printf from library stdio.h
 * output stream is managed with DMA controller 
@@ -210,7 +207,6 @@ void radioSend(char* buff, unsigned char len){
 * before call this function is nessesary to initialize radio
 * any one formated string (call) is sended in one packet
 */
-
 unsigned char rf_printf(const char * format /*format*/, ...){
   char buff[256];
   unsigned char len;
@@ -229,9 +225,10 @@ unsigned char rf_printf(const char * format /*format*/, ...){
   return len;
 }
 
-/***************************************************************************************************
-****************************************************************************************************
-***************************************************************************************************/
+/*
+* set timer in periodic cycle at interval aproximetly 10ms = 1time slot
+* 
+*/
 void timeMultiplexInit(){
   GptLd (pADI_TM0, 1270); // Interval of 10ms
   GptCfg(pADI_TM0, TCON_CLK_UCLK, TCON_PRE_DIV256, TCON_ENABLE|TCON_MOD_PERIODIC);
@@ -244,14 +241,17 @@ void timeMultiplexInit(){
 
 
 
-
+/*
+* 
+* 
+*/
 void conectionEstablish(void){
   rf_printf("##start##");
   timeMultiplexInit();//initialize timer for periodic interupts
 }
 
 /*
-*send request for retranmit missing packets
+* send request for retranmit missing packets
 *
 */
 char getMissPkt(void)
@@ -323,15 +323,16 @@ char getMissPkt(void)
         }
       k=4;//reinitialize at first number of packet
     }
-    	if (RIE_Response == RIE_Success)
+      if (RIE_Response == RIE_Success)
       RIE_Response = RadioRxPacketVariableLen(); 
     return 0;//in case of sucses retransmition
 }
-
-void sendBufferedPackets(void){
-  int len=0;
-  char* pktMemoryPtr;
-/////////switch buffer//////  
+/*
+* flush all received data
+*/
+void flushBufferedPackets(void){
+  
+  //switch buffer 
   actualRxBuffer++;
   actualTxBuffer++;
   if(actualTxBuffer==2)
@@ -339,54 +340,43 @@ void sendBufferedPackets(void){
   else
     actualRxBuffer=0;
   
-//   pktMemoryPtr=&pktMemory[0][0][0];
-//   
-//   if(pktMemoryPtr[3] != 'w' && numOfPkt[actualTxBuffer][0] > 0 ){
-//     while(pktMemoryPtr[0]!='\0'){//get lenght of string ... faster than use dma_printf
-//       pktMemoryPtr++;
-//       len++;
-//     }
-//     //send only first packet anything else is managed in DMA_UART_TX_Int_Handler
-//     dmaSend((pktMemoryPtr-len),len);
-//   }
   dmaTxSlv =0;//initialize
   dmaTxPkt =0;
-  empty_flag =1;
+  flush_flag =1;
   //call DMA_UART_TX_Int_Handler all managment is inside this function
   DMA_UART_TX_Int_Handler ();
 }
+/*
+* functio is waiting and reading 1 data packet
+*/
+void RadioRecieve(void){
 
-void RadioRecieve(void){//pocka na prijatie jedneho paketu
-
- 
   LED_OFF;
-	if (RIE_Response == RIE_Success)
-		 {
+  if (RIE_Response == RIE_Success)
+     {
        while (!RadioRxPacketAvailable()){
          if (send == 1){
-//            if (terminate_flag==1){
-//             RadioTerminateRadioOp();//Terminate any RX or TX operation
-//             terminate_flag=0;
-//            }
+///////////////////////time slot identificator transmiting////////////////////
            if (SID < NUM_OF_SLAVE){
-             rf_printf(TIME_SLOT_ID);//start packet for new multiplex
+             rf_printf(TIME_SLOT_ID_MASTER);//start packet for new multiplex
              numOfPkt[actualRxBuffer][SID] = -1;
            }
            else {
              terminate_flag=0;
              getMissPkt();
-             sendBufferedPackets();
+             flushBufferedPackets();
            }
            send=0;
            if (RIE_Response == RIE_Success)
              RIE_Response = RadioRxPacketVariableLen();//again wait for packet
          }
+//////////////////////////////////////////////////////////////////////////////
        }
        LED_ON;
-		 }
+     }
       
-	if (RIE_Response == RIE_Success)//Read received packet form internal buffer to Buffer
-		RIE_Response = RadioRxPacketRead(sizeof(Buffer),&PktLen,Buffer,&RSSI);
+  if (RIE_Response == RIE_Success)//Read received packet form internal buffer to Buffer
+    RIE_Response = RadioRxPacketRead(sizeof(Buffer),&PktLen,Buffer,&RSSI);
   if (RIE_Response == RIE_Success)
     RIE_Response = RadioRxPacketVariableLen();  
   
@@ -406,27 +396,28 @@ void RadioRecieve(void){//pocka na prijatie jedneho paketu
 #endif
 }
 
-
+/*
+*
+*/
 
 int main(void)
 { 
   signed char slv,pkt,k,l;
   
   WdtGo(T3CON_ENABLE_DIS);
-	
-	
-	uartInit();
-	ledInit();
-	radioInit();
+  
+  
+  uartInit();
+  ledInit();
+  radioInit();
   conectionEstablish();
   
   NVIC_SetPriority(DMA_UART_TX_IRQn,7);//terminate DMA TX priority
   NVIC_SetPriority(TIMER1_IRQn,8);//blinking low priority
   NVIC_SetPriority(TIMER0_IRQn,9);//terminate transmiting higher prioritz
   NVIC_SetPriority(EINT8_IRQn,10);//highest priority for radio interupt
-  //printf("priorita %d",NVIC_GetPriority(EINT8_IRQn));
   
-	while(1)
+  while(1)
   {
     RadioRecieve();
     slv=(Buffer[1]-'0');//extracting of slave ID number
@@ -498,7 +489,7 @@ void DMA_UART_TX_Int_Handler (void)
   UrtDma(0,0);  // prevents further UART DMA requests
   DmaChanSetup ( UARTTX_C , DISABLE , DISABLE );// Disable DMA channel
   
-  if(empty_flag == 1){
+  if(flush_flag == 1){
     if(dmaTxSlv < NUM_OF_SLAVE){//slave iterate 0..4
       if(dmaTxPkt <= numOfPkt[actualTxBuffer][dmaTxSlv]){//packet itete 0..as needed
         
@@ -511,7 +502,7 @@ void DMA_UART_TX_Int_Handler (void)
 #if SEND_HEAD
           dmaSend(dmaTxPtr,len);//send data with head
 #else
-          dmaSend(dmaTxPtr+7,len-7);//send only data without head
+          dmaSend(dmaTxPtr+(HEAD_LENGHT+1),len-(HEAD_LENGHT+1));//send only data without head
 #endif
           dmaTx_flag=1;
         }
@@ -525,7 +516,7 @@ void DMA_UART_TX_Int_Handler (void)
         dmaTxSlv++;
     }
     else{ //all data sended
-      empty_flag=0;
+      flush_flag=0;
       dmaTx_flag=1;//end of recurent calls
     }
       
@@ -539,7 +530,7 @@ void DMA_UART_TX_Int_Handler (void)
     
 }
 ///////////////////////////////////////////////////////////////////////////
-// DMA UART Interrupt handler 
+// DMA UART RX Interrupt handler 
 ///////////////////////////////////////////////////////////////////////////
 void DMA_UART_RX_Int_Handler   ()
 {

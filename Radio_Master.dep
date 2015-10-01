@@ -1,6 +1,6 @@
 Dependencies for Project 'Radio', Target 'Master': (DO NOT MODIFY !)
 F (.\src\Slave.c)(0x55F9DE0A)()
-F (.\src\Master.c)(0x55F9E522)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -I$K\ARM\CMSIS\Include -I C:\Keil_v5\ARM\RV31\INC -I C:\Keil_v5\ARM\CMSIS\Include -I C:\Keil_v5\ARM\Inc\ADI -o ".\obj\master.o" --omf_browse ".\obj\master.crf" --depend ".\obj\master.d")
+F (.\src\Master.c)(0x55F9E73F)(-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\..\Common -I..\..\DasLib -I$K\ARM\CMSIS\Include -I C:\Keil_v5\ARM\RV31\INC -I C:\Keil_v5\ARM\CMSIS\Include -I C:\Keil_v5\ARM\Inc\ADI -o ".\obj\master.o" --omf_browse ".\obj\master.crf" --depend ".\obj\master.d")
 I (..\..\Common\include.h)(0x55F208CB)
 I (C:\Keil_v5\ARM\ARMCC\bin\..\include\stdlib.h)(0x516ED646)
 I (C:\Keil_v5\ARM\ARMCC\bin\..\include\stddef.h)(0x516ED646)

@@ -1,3 +1,10 @@
+# Listing an OBJECT files
+src
+obj
+*.ewd
+*.ewc
+*.dep
+
 # Object files
 *.o
 *.ko

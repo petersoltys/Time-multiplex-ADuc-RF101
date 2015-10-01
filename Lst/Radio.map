@@ -1035,64 +1035,64 @@ Memory Map of the image
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x000000f0   Data   RO           97    RESET               startup_aducrf101.o
-    0x000000f0   0x00000000   Code   RO         1207  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x000000f0   0x00000004   Code   RO         1487    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x000000f4   0x00000004   Code   RO         1490    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x000000f8   0x00000000   Code   RO         1492    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x000000f8   0x00000000   Code   RO         1494    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x000000f8   0x00000008   Code   RO         1495    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x00000100   0x00000000   Code   RO         1497    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x00000100   0x00000000   Code   RO         1499    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x00000100   0x00000004   Code   RO         1488    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x000000f0   0x00000000   Code   RO         1239  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x000000f0   0x00000004   Code   RO         1519    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x000000f4   0x00000004   Code   RO         1522    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x000000f8   0x00000000   Code   RO         1524    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x000000f8   0x00000000   Code   RO         1526    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x000000f8   0x00000008   Code   RO         1527    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x00000100   0x00000000   Code   RO         1529    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x00000100   0x00000000   Code   RO         1531    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x00000100   0x00000004   Code   RO         1520    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x00000104   0x000007b4   Code   RO            3    .text               master.o
     0x000008b8   0x00000024   Code   RO           98    .text               startup_aducrf101.o
-    0x000008dc   0x00000944   Code   RO          178    .text               radioeng.o
-    0x00001220   0x0000004c   Code   RO          181    .text               radioeng.o
-    0x0000126c   0x00000044   Code   RO          182    .text               radioeng.o
-    0x000012b0   0x00000084   Code   RO          282    .text               system_aducrf101.o
-    0x00001334   0x00000030   Code   RO          512    .text               diolib.o
-    0x00001364   0x0000003a   Code   RO          598    .text               gptlib.o
+    0x000008dc   0x00000944   Code   RO          210    .text               radioeng.o
+    0x00001220   0x0000004c   Code   RO          213    .text               radioeng.o
+    0x0000126c   0x00000044   Code   RO          214    .text               radioeng.o
+    0x000012b0   0x00000084   Code   RO          314    .text               system_aducrf101.o
+    0x00001334   0x00000030   Code   RO          544    .text               diolib.o
+    0x00001364   0x0000003a   Code   RO          630    .text               gptlib.o
     0x0000139e   0x00000002   PAD
-    0x000013a0   0x0000005c   Code   RO          818    .text               urtlib.o
-    0x000013fc   0x0000001c   Code   RO          887    .text               wdtlib.o
-    0x00001418   0x000001a8   Code   RO          936    .text               dmalib.o
-    0x000015c0   0x00000024   Code   RO         1210    .text               mc_w.l(memcpya.o)
-    0x000015e4   0x00000024   Code   RO         1212    .text               mc_w.l(memseta.o)
-    0x00001608   0x00000018   Code   RO         1214    .text               mc_w.l(strcat.o)
-    0x00001620   0x00000012   Code   RO         1216    .text               mc_w.l(strcpy.o)
-    0x00001632   0x000000e4   Code   RO         1481    .text               mf_w.l(dmul.o)
-    0x00001716   0x0000001a   Code   RO         1483    .text               mf_w.l(dfltui.o)
-    0x00001730   0x00000032   Code   RO         1485    .text               mf_w.l(dfixui.o)
-    0x00001762   0x0000002c   Code   RO         1501    .text               mc_w.l(uidiv.o)
-    0x0000178e   0x00000062   Code   RO         1503    .text               mc_w.l(uldiv.o)
-    0x000017f0   0x00000020   Code   RO         1505    .text               mc_w.l(llushr.o)
-    0x00001810   0x00000000   Code   RO         1507    .text               mc_w.l(iusefp.o)
-    0x00001810   0x000000ba   Code   RO         1508    .text               mf_w.l(depilogue.o)
-    0x000018ca   0x0000014e   Code   RO         1510    .text               mf_w.l(dadd.o)
-    0x00001a18   0x000000de   Code   RO         1512    .text               mf_w.l(ddiv.o)
-    0x00001af6   0x00000030   Code   RO         1514    .text               mf_w.l(dfixul.o)
+    0x000013a0   0x0000005c   Code   RO          850    .text               urtlib.o
+    0x000013fc   0x0000001c   Code   RO          919    .text               wdtlib.o
+    0x00001418   0x000001a8   Code   RO          968    .text               dmalib.o
+    0x000015c0   0x00000024   Code   RO         1242    .text               mc_w.l(memcpya.o)
+    0x000015e4   0x00000024   Code   RO         1244    .text               mc_w.l(memseta.o)
+    0x00001608   0x00000018   Code   RO         1246    .text               mc_w.l(strcat.o)
+    0x00001620   0x00000012   Code   RO         1248    .text               mc_w.l(strcpy.o)
+    0x00001632   0x000000e4   Code   RO         1513    .text               mf_w.l(dmul.o)
+    0x00001716   0x0000001a   Code   RO         1515    .text               mf_w.l(dfltui.o)
+    0x00001730   0x00000032   Code   RO         1517    .text               mf_w.l(dfixui.o)
+    0x00001762   0x0000002c   Code   RO         1533    .text               mc_w.l(uidiv.o)
+    0x0000178e   0x00000062   Code   RO         1535    .text               mc_w.l(uldiv.o)
+    0x000017f0   0x00000020   Code   RO         1537    .text               mc_w.l(llushr.o)
+    0x00001810   0x00000000   Code   RO         1539    .text               mc_w.l(iusefp.o)
+    0x00001810   0x000000ba   Code   RO         1540    .text               mf_w.l(depilogue.o)
+    0x000018ca   0x0000014e   Code   RO         1542    .text               mf_w.l(dadd.o)
+    0x00001a18   0x000000de   Code   RO         1544    .text               mf_w.l(ddiv.o)
+    0x00001af6   0x00000030   Code   RO         1546    .text               mf_w.l(dfixul.o)
     0x00001b26   0x00000002   PAD
-    0x00001b28   0x00000030   Code   RO         1516    .text               mf_w.l(cdrcmple.o)
-    0x00001b58   0x00000024   Code   RO         1518    .text               mc_w.l(init.o)
-    0x00001b7c   0x0000001e   Code   RO         1520    .text               mc_w.l(llshl.o)
-    0x00001b9a   0x00000024   Code   RO         1522    .text               mc_w.l(llsshr.o)
+    0x00001b28   0x00000030   Code   RO         1548    .text               mf_w.l(cdrcmple.o)
+    0x00001b58   0x00000024   Code   RO         1550    .text               mc_w.l(init.o)
+    0x00001b7c   0x0000001e   Code   RO         1552    .text               mc_w.l(llshl.o)
+    0x00001b9a   0x00000024   Code   RO         1554    .text               mc_w.l(llsshr.o)
     0x00001bbe   0x00000002   PAD
-    0x00001bc0   0x00000028   Code   RO         1267    i.__0sprintf$1      mc_w.l(printf1.o)
-    0x00001be8   0x00000024   Code   RO         1459    i.__0vsprintf       mc_w.l(printfa.o)
-    0x00001c0c   0x0000000e   Code   RO         1526    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00001c1a   0x00000002   Code   RO         1527    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00001c1c   0x0000000e   Code   RO         1528    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x00001bc0   0x00000028   Code   RO         1299    i.__0sprintf$1      mc_w.l(printf1.o)
+    0x00001be8   0x00000024   Code   RO         1491    i.__0vsprintf       mc_w.l(printfa.o)
+    0x00001c0c   0x0000000e   Code   RO         1558    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x00001c1a   0x00000002   Code   RO         1559    i.__scatterload_null  mc_w.l(handlers.o)
+    0x00001c1c   0x0000000e   Code   RO         1560    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x00001c2a   0x00000002   PAD
-    0x00001c2c   0x00000164   Code   RO         1460    i._fp_digits        mc_w.l(printfa.o)
-    0x00001d90   0x00000154   Code   RO         1272    i._printf_core      mc_w.l(printf1.o)
-    0x00001ee4   0x000006dc   Code   RO         1461    i._printf_core      mc_w.l(printfa.o)
-    0x000025c0   0x00000024   Code   RO         1462    i._printf_post_padding  mc_w.l(printfa.o)
-    0x000025e4   0x0000002e   Code   RO         1463    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x00002612   0x0000000a   Code   RO         1274    i._sputc            mc_w.l(printf1.o)
-    0x0000261c   0x0000000a   Code   RO         1465    i._sputc            mc_w.l(printfa.o)
-    0x00002626   0x000000c0   Data   RO          191    .constdata          radioeng.o
+    0x00001c2c   0x00000164   Code   RO         1492    i._fp_digits        mc_w.l(printfa.o)
+    0x00001d90   0x00000154   Code   RO         1304    i._printf_core      mc_w.l(printf1.o)
+    0x00001ee4   0x000006dc   Code   RO         1493    i._printf_core      mc_w.l(printfa.o)
+    0x000025c0   0x00000024   Code   RO         1494    i._printf_post_padding  mc_w.l(printfa.o)
+    0x000025e4   0x0000002e   Code   RO         1495    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x00002612   0x0000000a   Code   RO         1306    i._sputc            mc_w.l(printf1.o)
+    0x0000261c   0x0000000a   Code   RO         1497    i._sputc            mc_w.l(printfa.o)
+    0x00002626   0x000000c0   Data   RO          223    .constdata          radioeng.o
     0x000026e6   0x00000002   PAD
-    0x000026e8   0x00000020   Data   RO         1524    Region$$Table       anon$$obj.o
+    0x000026e8   0x00000020   Data   RO         1556    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x20000000, Size: 0x00003000, Max: 0x00004000, ABSOLUTE)
@@ -1100,13 +1100,13 @@ Memory Map of the image
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   0x0000001c   Data   RW            5    .data               master.o
-    0x2000001c   0x0000000a   Data   RW          192    .data               radioeng.o
+    0x2000001c   0x0000000a   Data   RW          224    .data               radioeng.o
     0x20000026   0x00000002   PAD
-    0x20000028   0x0000000c   Data   RW          287    .data               system_aducrf101.o
+    0x20000028   0x0000000c   Data   RW          319    .data               system_aducrf101.o
     0x20000034   0x000028d7   Zero   RW            4    .bss                master.o
-    0x2000290b   0x00000040   Zero   RW          190    .bss                radioeng.o
+    0x2000290b   0x00000040   Zero   RW          222    .bss                radioeng.o
     0x2000294b   0x000000b5   PAD
-    0x20002a00   0x00000200   Zero   RW          937    .bss                dmalib.o
+    0x20002a00   0x00000200   Zero   RW          969    .bss                dmalib.o
     0x20002c00   0x00000400   Zero   RW           95    STACK               startup_aducrf101.o
 
 
@@ -1121,15 +1121,16 @@ Image component sizes
         48          0          0          0          0       1553   diolib.o
        424         56          0          0        512       1814   dmalib.o
         58          0          0          0          0       1600   gptlib.o
-      1972        228          0         28      10455     240990   master.o
+      1972        228          0         28      10455     240466   master.o
       2516        150        192         10         64      37313   radioeng.o
+         0          0          0          0          0     207620   retarget.o
         36          8        240          0       1024        796   startup_aducrf101.o
        132         24          0         12          0        815   system_aducrf101.o
         92         10          0          0          0        851   urtlib.o
         28          6          0          0          0        472   wdtlib.o
 
     ----------------------------------------------------------------------
-      5308        482        466         52      12236     492204   Object Totals
+      5308        482        466         52      12236     699300   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          2          0          2          2        181          0   (incl. Padding)
 
@@ -1189,8 +1190,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      9526        594        466         52      12236     492860   Grand Totals
-      9526        594        466         52      12236     492860   ELF Image Totals
+      9526        594        466         52      12236     699956   Grand Totals
+      9526        594        466         52      12236     699956   ELF Image Totals
       9526        594        466         52          0          0   ROM Totals
 
 ==============================================================================
